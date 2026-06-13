@@ -1,44 +1,49 @@
-# Which State Am I? — Gallery Submission
+# Which State Am I? — Where Innovation Meets Heritage
 
 ## Challenge Overview
-This repository functions as a standalone web exhibition designed for the **"Which State Am I?"** challenge. The project highlights an intricate centerpiece artwork crafted to convey the soul, heritage, geographic identity, and craftsmanship of a beautiful region. 
+This project presents an AI-generated artwork that captures the identity of a unique region without explicitly revealing its name. The challenge uses visual storytelling to represent a geography famous for seamlessly blending rapid technological advancement with deep-rooted cultural preservation.
 
-The design objective is to visually communicate its identity relying on cultural storytelling indicators while strictly avoiding any textual state names, city identifiers, geographical maps, or flags.
-
-## Inspiration & Visual Elements
-The exhibition layout breaks down the core structural details highlighted inside `generated-image.png`:
-- **Riverside Dawn:** Vibrant morning celebrations occurring across a massive river landscape with golden dawn light shimmering on the water.
-- **Traditional Attire:** Figures wearing timeless, culturally symbolic white-and-red clothes carrying glowing clay lamps.
-- **Artisanship & Commerce:** Generational craft markets populated with skilled hands molding clay idols alongside expansive displays of handwoven fabrics and terracotta art.
-- **Historic Transport & Literature:** Classic vintage yellow street trams traveling down colonial urban avenues lined with book stalls packed with literature.
-- **Ecosystems & Rural Landscapes:** Traditional fishermen handling wooden boats near emerald agricultural paddy fields that ease cleanly into vast mangrove forest horizons under white birds.
+## Inspiration
+The artwork is built around the central theme: **"Where innovation meets heritage."** It combines several defining visual themes visible in the image:
+* A futuristic skyline representing a thriving innovation, technology, and startup ecosystem.
+* A grand heritage palace symbolizing a rich architectural and historical legacy.
+* Ancient stone craftsmanship and temple carvings.
+* Traditional silk weaving workshops.
+* Classical dance performances accompanied by traditional musicians and cultural arts.
+* Vibrant local spice and artisan markets.
+* Lush, rolling plantation-covered hills, dense forests, and cascading waterfalls.
 
 ## Creative Approach
-The landing page layout is styled to mirror a premium, real-world digital museum canvas. By wrapping the project inside a deep color spectrum enhanced with smooth radial lighting, the image stands out like a physical exhibit under a custom frame light track. The visual system avoids heavy ornamentation to give full storytelling dominance to the image artifact.
+The objective was to create a visual experience that allows viewers to identify the region through its unique balance of technology, culture, environment, and traditions, rather than through written clues.
 
-## Project Structure
-- `/`
-  - `index.html`: Fully semantic HTML5 node hierarchy layout utilizing modern element blocks (`<header>`, `<main>`, `<section>`, `<article>`, `<footer()`) for clean accessibility indexing.
-  - `style.css`: Pure responsive layout rules featuring a premium dark glassmorphic configuration built entirely with variable design tokens.
-  - `script.js`: Native vanilla interaction script driving scroll visibility intersections and high-performance coordinate calculations for image panning.
-  - `prompt.txt`: A file kept entirely and intentionally blank to meet challenge specifications.
-  - `generated-image.png`: The immutable artistic centerpiece image file.
-  - `README.md`: Technical documentation and challenge metadata.
+To adhere to the challenge rules, the artwork and this repository intentionally avoid referencing:
+* State names, city names, or specific landmark names.
+* Maps, flags, logos, or typography within the image.
+* Any language text or explicitly written geographic markers.
 
 ## Technologies Used
-- HTML5 (Semantic Structure)
-- CSS3 (Variables, Custom Grid Systems, Complex Transitions)
-- Vanilla JavaScript (Native Intersection Observers, Interactive Matrix Transform Arrays)
+* HTML5 (Semantic and Accessible)
+* CSS3 (Grid, Flexbox, Variables, Glassmorphism, Advanced Hover States)
+* Vanilla JavaScript (ES6+, IntersectionObserver, PointerEvents)
 
-## Accessibility & Responsiveness
-- **Layout Adjustments:** Features seamless fluid scaling working effortlessly from large desktop screens down to standard portrait mobile devices using CSS flexible configurations.
-- **Keyboard Optimization:** Focus tracking outlines mapped cleanly across interactive elements to facilitate screen readers and alternate control methods.
-- **Semantic Integrity:** Uses proper element definitions with comprehensive text fallback descriptors (`alt` labels) inside the rendering window.
+## Security & Accessibility Standards
+* **Secure DOM Handling:** Strict avoidance of `innerHTML`, `eval()`, and inline scripting.
+* **CSP Headers:** Implemented Content Security Policy to mitigate XSS risks.
+* **WCAG Compliance:** Proper semantic landmarks (`header`, `main`, `section`, `footer`).
+* **Keyboard Navigation:** Fully visible focus states, ARIA labels, and skip-to-content links.
+* **Performance:** High-performance animations utilizing CSS variables and `requestAnimationFrame`.
 
-## Deployment Instructions
-The project is completely static, pre-compiled, and ready to publish directly via **GitHub Pages** without requiring separate bundlers, package management scripts, or server-side hosting modules.
+## Project Structure
+* `index.html`: The core semantic markup of the exhibition page.
+* `style.css`: The styling engine rendering the premium dark luxury aesthetic.
+* `script.js`: Lightweight, modular logic handling scroll reveals and dynamic spotlights.
+* `prompt.txt`: Blank file mandated by challenge requirements.
+* `generated-image.png`: The visual centerpiece artwork.
+* `/tests/test-plan.md`: Comprehensive documentation covering manual/automated QA strategy.
 
-1. Commit all files into your repository path.
-2. Head to **Settings** within your target GitHub project window.
-3. Select **Pages** from the sidebar configuration index.
-4. Set your deploy source branch configuration options directly to `main` (or root path) and hit save.
+## Deployment
+This repository is pre-configured and ready for GitHub Pages:
+1. Push this repository to your GitHub account.
+2. Navigate to repository **Settings** -> **Pages**.
+3. Under **Build and deployment**, set the source to `Deploy from a branch`.
+4. Select the `main` branch and `/ (root)` folder, then click **Save**.# project_culture

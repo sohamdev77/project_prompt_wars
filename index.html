@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="An interactive, premium digital gallery exhibition showcasing regional heritage, craftsmanship, and natural landscapes through visual storytelling.">
-    <title>The Heritage Exhibition | Challenge Showcase</title>
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self';">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    <title>Which State Am I? | Where Innovation Meets Heritage</title>
+    <meta name="description" content="An AI-generated visual exhibition capturing the identity of a region known for blending a thriving technology ecosystem with ancient architectural legacy and natural beauty.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,78 +18,55 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div id="gallery-loader" class="loader-mask" aria-hidden="true">
-        <div class="loader-pulse"></div>
-    </div>
-
-    <header class="gallery-hero">
-        <div class="hero-blur-bg"></div>
-        <div class="container hero-wrapper">
-            <span class="hero-badge scroll-reveal">Exhibition Showcase</span>
-            <h1 class="hero-title text-glow scroll-reveal">Which State Am I?</h1>
-            <p class="hero-subtitle scroll-reveal">
-                A visual journey tracing the soul, architecture, and living heritage of a timeless region. Peer into the canvas of traditions, local craftsmanship, and natural ecosystems—told entirely through visual metaphors without a single name.
-            </p>
-            <a href="#exhibit" class="discover-btn scroll-reveal" aria-label="Step into the exhibit gallery">View Exhibit</a>
+    <header class="hero" id="header" role="banner">
+        <div class="hero-content fade-in">
+            <h1 class="main-title">Which State Am I?</h1>
+            <p class="subtitle">Where innovation meets heritage. Explore a visual journey through a region where cutting-edge technological progress and ancient cultural traditions thrive side by side.</p>
         </div>
     </header>
 
-    <main id="exhibit" class="exhibit-canvas">
-        
-        <section class="masterpiece-section container scroll-reveal" aria-labelledby="exhibit-title">
-            <h2 id="exhibit-title" class="sr-only">The Central Artwork Frame</h2>
-            
-            <div class="gallery-frame-container">
-                <div class="spotlight-beam" id="spotlight"></div>
-                <div class="gallery-card" tabindex="0" aria-label="Interactive gallery piece. Move your cursor across the artwork to illuminate details.">
-                    <img src="generated-image.png" alt="Fine art digital illustration representing local riverside traditions, handwoven textiles, traditional drummers, historic yellow trams, literature stalls, and native coastal mangroves at sunrise." class="centerpiece-image" id="gallery-img">
-                    <div class="frame-ambient-glow"></div>
-                    <div class="interactive-overlay">
-                        <span class="scan-prompt">Interactive Frame — Scan to Explore</span>
-                    </div>
+    <main id="main-content" role="main">
+        <section class="gallery-section" aria-labelledby="gallery-title">
+            <h2 id="gallery-title" class="sr-only">Featured Artwork</h2>
+            <div class="container">
+                <div class="spotlight-wrapper" id="artwork-container" tabindex="0" aria-label="Interactive artwork displaying a futuristic tech skyline, a royal palace, stone sculptors, silk weavers, and natural landscapes. Hover or focus to explore details.">
+                    <img src="generated-image.png" alt="A cinematic digital artwork featuring a futuristic city skyline in the background, a grand royal palace, rolling green plantations, and foreground scenes of stone sculptors, silk weavers, classical dancers, and vibrant spice markets." class="exhibition-image" id="main-artwork">
+                    <div class="spotlight-overlay" aria-hidden="true"></div>
                 </div>
+                <p class="caption">Explore the visual clues hidden within the canvas.</p>
             </div>
         </section>
 
-        <section class="curator-section container scroll-reveal" aria-labelledby="curator-title">
-            <h2 id="curator-title" class="section-heading">Curator's Notes & Archetypes</h2>
-            <p class="section-sub">Deconstructing the visual elements interwoven inside the frame.</p>
-            
-            <div class="glass-grid">
-                <article class="glass-plate">
-                    <div class="plate-meta">01 / Ritual</div>
-                    <h3>Riverside Dawn</h3>
-                    <p>A brilliant sunrise spreads across a vast river system, illuminating elegant figures in white-and-red attire carrying clay lamps. It represents a spiritual tether to ancestral waters and time-honored morning invocations.</p>
-                </article>
-
-                <article class="glass-plate">
-                    <div class="plate-meta)02 / Trade</div>
-                    <h3>Heritage Markets</h3>
-                    <p>Meticulous clay craftsmanship takes form under the hands of local artisans sculpting intricate icons. Around them lies a thriving marketplace boasting handwoven fabrics, raw terracotta artifacts, and traditional wares.</p>
-                </article>
-
-                <article class="glass-plate">
-                    <div class="plate-meta">03 / Movement</div>
-                    <h3>Urban Rhythms</h3>
-                    <p>Traditional drummers evoke dynamic movement alongside historic yellow trams gently winding down old, colonial-era streets. Nearby, extensive open-air book stalls overflow with classical literature, celebrating an intellectual heart.</p>
-                </article>
-
-                <article class="glass-plate">
-                    <div class="plate-meta">04 / Ecosystem</div>
-                    <h3>The Living Delta</h3>
-                    <p>Rural agricultural landscapes with vibrant green paddy fields drop cleanly into thick mangrove forests at the misty horizon. Traditional fishing communities navigate wooden boats below wild flocks of white birds soaring overhead.</p>
-                </article>
+        <section class="inspiration-section" aria-labelledby="inspiration-title">
+            <div class="container">
+                <h2 id="inspiration-title" class="section-title reveal">Cultural & Visual Clues</h2>
+                <div class="card-grid">
+                    <article class="glass-card reveal">
+                        <h3>Innovation Ecosystem</h3>
+                        <p>A futuristic skyline rising in the distance represents a thriving center of technology, engineering excellence, and startup culture.</p>
+                    </article>
+                    <article class="glass-card reveal">
+                        <h3>Architectural Legacy</h3>
+                        <p>A grand heritage palace stands prominently, symbolizing centuries of royal history, historical architecture, and preserved cultural wealth.</p>
+                    </article>
+                    <article class="glass-card reveal">
+                        <h3>Arts & Craftsmanship</h3>
+                        <p>Skilled stone sculptors carve intricate temple details, traditional silk weavers craft vibrant textiles, and classical dancers perform alongside traditional musicians.</p>
+                    </article>
+                    <article class="glass-card reveal">
+                        <h3>Agricultural Richness</h3>
+                        <p>Rolling plantation-covered hills, dense forests, breathtaking waterfalls, and vibrant spice markets showcase the region's extraordinary natural beauty.</p>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="gallery-footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">"Which State Am I?" Challenge</div>
-            <p class="footer-desc">An experimental cultural submission engineered with pure HTML, CSS, and modern JavaScript layout engines.</p>
-            <div class="footer-divider"></div>
-            <p class="footer-copy">&copy; 2026. Fully responsive, framework-free production deployment.</p>
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <p class="footer-text">&copy; 2026 Challenge Submission. Built with clean, accessible, and secure web standards.</p>
         </div>
     </footer>
 

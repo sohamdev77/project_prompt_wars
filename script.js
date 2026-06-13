@@ -1,79 +1,78 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. Dynamic Page Curtain Loader Elimination
-    const loaderMask = document.getElementById("gallery-loader");
-    if (loaderMask) {
-        window.addEventListener("load", () => {
-            loaderMask.style.opacity = "0";
-            loaderMask.style.visibility = "hidden";
-        });
-        
-        // Safety Fallback (Ensures viewport visibility regardless of asset caching)
-        setTimeout(() => {
-            loaderMask.style.opacity = "0";
-            loaderMask.style.visibility = "hidden";
-        }, 1000);
-    }
+/**
+ * Security Profile:
+ * - Strict mode enabled to prevent implicit globals and silent errors.
+ * - DOM manipulation limited to layout geometry and class toggling.
+ * - Zero usage of eval(), Function(), or innerHTML to prevent DOM-based XSS.
+ * - Secure event listener attachments.
+ */
+"use strict";
 
-    // 2. High-Performance Intersection Observer for Scroll Revealing Elements
-    const initializeScrollReveals = () => {
-        const targetElements = document.querySelectorAll(".scroll-reveal");
+const AppController = (function() {
+    
+    /**
+     * Initializes the scroll reveal animation utilizing the IntersectionObserver API.
+     * This provides high-performance tracking without blocking the main thread.
+     */
+    const initScrollReveal = () => {
+        const revealElements = document.querySelectorAll('.reveal');
         
-        const observerConfig = {
-            root: null, // Default browser viewport
-            rootMargin: "0px",
-            threshold: 0.1 // Triggers animation safely upon fractional view entrance
+        if (!revealElements.length) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.12 // Trigger when 12% of the element is visible
         };
 
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add("reveal-active");
-                    observer.unobserve(entry.target); // Release memory footprint once element fires
+                    entry.target.classList.add('active');
+                    // Unobserve element after it's revealed to free memory
+                    observer.unobserve(entry.target);
                 }
             });
-        }, observerConfig);
+        }, observerOptions);
 
-        targetElements.forEach(element => {
+        revealElements.forEach(element => {
             revealObserver.observe(element);
         });
     };
-    initializeScrollReveals();
 
-    // 3. Immersive Interactive Spotlight Mapping & Pan Zoom Dynamics
-    const galleryCard = document.querySelector(".gallery-card");
-    const galleryImg = document.getElementById("gallery-img");
-    const spotlightBeam = document.getElementById("spotlight");
-
-    if (galleryCard && galleryImg && spotlightBeam) {
+    /**
+     * Initializes the dynamic spotlight effect on the main artwork.
+     * Uses CSS variables to update the gradient position securely.
+     */
+    const initSpotlightEffect = () => {
+        const container = document.getElementById('artwork-container');
         
-        galleryCard.addEventListener("mousemove", (e) => {
-            const cardRect = galleryCard.getBoundingClientRect();
-            
-            // Track dynamic coordinate values within element structure bounds
-            const cursorX = e.clientX - cardRect.left;
-            const cursorY = e.clientY - cardRect.top;
+        if (!container) return;
 
-            // Compute relative positioning values normalized across center space
-            const relativeX = (cursorX / cardRect.width) - 0.5;
-            const relativeY = (cursorY / cardRect.height) - 0.5;
+        // Uses pointer events to gracefully handle both mouse and touch input
+        container.addEventListener('pointermove', (event) => {
+            // Use requestAnimationFrame to debounce layout thrashing
+            window.requestAnimationFrame(() => {
+                const rect = container.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                
+                // Set CSS variables for the overlay mask
+                container.style.setProperty('--x', `${x}px`);
+                container.style.setProperty('--y', `${y}px`);
+            });
+        }, { passive: true });
+    };
 
-            // 3a. Update Spotlight coordinates inside frame container context
-            spotlightBeam.style.opacity = "1";
-            spotlightBeam.style.left = `${cursorX + 32}px`; // Accounting for wrapper frame offsets
-            spotlightBeam.style.top = `${cursorY + 32}px`;
+    // Public API
+    return {
+        init: () => {
+            initScrollReveal();
+            initSpotlightEffect();
+        }
+    };
+})();
 
-            // 3b. Coordinate subtle interactive panning transformation
-            const translationX = relativeX * -30; // Max lateral movement pixel capacity
-            const translationY = relativeY * -30; // Max vertical movement pixel capacity
-
-            galleryImg.style.transform = `scale(1.07) translate(${translationX}px, ${translationY}px)`;
-        });
-
-        // Safe restoration matrix on hover end
-        galleryCard.addEventListener("mouseleave", () => {
-            spotlightBeam.style.opacity = "0";
-            galleryImg.style.transform = "scale(1) translate(0px, 0px)";
-        });
-    }
+// Initialize application when the DOM is fully constructed
+document.addEventListener('DOMContentLoaded', () => {
+    AppController.init();
 });
