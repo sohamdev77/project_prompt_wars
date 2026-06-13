@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive, premium digital gallery exhibition showcasing regional heritage, craftsmanship, and natural landscapes through visual storytelling.">
+    <title>The Heritage Exhibition | Challenge Showcase</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="gallery-loader" class="loader-mask" aria-hidden="true">
+        <div class="loader-pulse"></div>
+    </div>
+
+    <header class="gallery-hero">
+        <div class="hero-blur-bg"></div>
+        <div class="container hero-wrapper">
+            <span class="hero-badge scroll-reveal">Exhibition Showcase</span>
+            <h1 class="hero-title text-glow scroll-reveal">Which State Am I?</h1>
+            <p class="hero-subtitle scroll-reveal">
+                A visual journey tracing the soul, architecture, and living heritage of a timeless region. Peer into the canvas of traditions, local craftsmanship, and natural ecosystems—told entirely through visual metaphors without a single name.
+            </p>
+            <a href="#exhibit" class="discover-btn scroll-reveal" aria-label="Step into the exhibit gallery">View Exhibit</a>
+        </div>
+    </header>
+
+    <main id="exhibit" class="exhibit-canvas">
+        
+        <section class="masterpiece-section container scroll-reveal" aria-labelledby="exhibit-title">
+            <h2 id="exhibit-title" class="sr-only">The Central Artwork Frame</h2>
+            
+            <div class="gallery-frame-container">
+                <div class="spotlight-beam" id="spotlight"></div>
+                <div class="gallery-card" tabindex="0" aria-label="Interactive gallery piece. Move your cursor across the artwork to illuminate details.">
+                    <img src="generated-image.png" alt="Fine art digital illustration representing local riverside traditions, handwoven textiles, traditional drummers, historic yellow trams, literature stalls, and native coastal mangroves at sunrise." class="centerpiece-image" id="gallery-img">
+                    <div class="frame-ambient-glow"></div>
+                    <div class="interactive-overlay">
+                        <span class="scan-prompt">Interactive Frame — Scan to Explore</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="curator-section container scroll-reveal" aria-labelledby="curator-title">
+            <h2 id="curator-title" class="section-heading">Curator's Notes & Archetypes</h2>
+            <p class="section-sub">Deconstructing the visual elements interwoven inside the frame.</p>
+            
+            <div class="glass-grid">
+                <article class="glass-plate">
+                    <div class="plate-meta">01 / Ritual</div>
+                    <h3>Riverside Dawn</h3>
+                    <p>A brilliant sunrise spreads across a vast river system, illuminating elegant figures in white-and-red attire carrying clay lamps. It represents a spiritual tether to ancestral waters and time-honored morning invocations.</p>
+                </article>
+
+                <article class="glass-plate">
+                    <div class="plate-meta)02 / Trade</div>
+                    <h3>Heritage Markets</h3>
+                    <p>Meticulous clay craftsmanship takes form under the hands of local artisans sculpting intricate icons. Around them lies a thriving marketplace boasting handwoven fabrics, raw terracotta artifacts, and traditional wares.</p>
+                </article>
+
+                <article class="glass-plate">
+                    <div class="plate-meta">03 / Movement</div>
+                    <h3>Urban Rhythms</h3>
+                    <p>Traditional drummers evoke dynamic movement alongside historic yellow trams gently winding down old, colonial-era streets. Nearby, extensive open-air book stalls overflow with classical literature, celebrating an intellectual heart.</p>
+                </article>
+
+                <article class="glass-plate">
+                    <div class="plate-meta">04 / Ecosystem</div>
+                    <h3>The Living Delta</h3>
+                    <p>Rural agricultural landscapes with vibrant green paddy fields drop cleanly into thick mangrove forests at the misty horizon. Traditional fishing communities navigate wooden boats below wild flocks of white birds soaring overhead.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="gallery-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">"Which State Am I?" Challenge</div>
+            <p class="footer-desc">An experimental cultural submission engineered with pure HTML, CSS, and modern JavaScript layout engines.</p>
+            <div class="footer-divider"></div>
+            <p class="footer-copy">&copy; 2026. Fully responsive, framework-free production deployment.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
